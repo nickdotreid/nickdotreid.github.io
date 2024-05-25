@@ -8,7 +8,7 @@ const IndexPage = () => (
       My name is Nick Reid
     </h1>
     <p>
-      I'm a PhD student in <a href="http://bime.uw.edu/">
+      I'm a PhD candidate in <a href="http://bime.uw.edu/">
         Biomedical Informatics and Medical Education
       </a> at the University of Washington.
       My advisor is Andrea Hartzler.
