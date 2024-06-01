@@ -48,11 +48,15 @@ body {
     padding: 0em;
 }
 
-.nickreid-logo::before {
+body > .content:first-child{
+    padding-top: 0px;
+}
+body > .content:first-child::before {
     content: "";
+    position: static;
     display: block;
     width: 100%;
-    height: 186px;
+    height: 100px;
     background-color: var(--primary-color);
     background-image: url('./images/nickreid-logo.png');
     background-repeat: no-repeat;
@@ -66,13 +70,14 @@ body {
         padding-left: 150px 
     }
     
-    .content.nickreid-logo::before {
+    body > .content:first-child::before {
         position: absolute;
-        top: 0px;
-        left: 0px;
+        top: -70px;
+        left: -70px;
         width: 150px;
-        height: 100%;
-        background-size: 100% auto;
+        height: 150px;
+	z-index: -1;
+	background-size: 100% auto;
     }
 }
 
@@ -86,8 +91,9 @@ body {
     content: "";
     display: block;
     position: absolute;
-    bottom: 0px;
-    right: 0px;
+    top: -70px;
+    right: -70px;
+    z-index: -1;
     width: 150px;
     height: 150px;
     background-image: url('./images/nickreid-picture.jpg');

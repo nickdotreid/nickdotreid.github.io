@@ -1,6 +1,7 @@
 module.exports = function(eleventyConfig) {
   eleventyConfig.addGlobalData('layout', 'nickreid.njk');
-  eleventyConfig.addPassthroughCopy("nickreid.css");
+  eleventyConfig.addPassthroughCopy("./nickreid.css");
+  eleventyConfig.addWatchTarget("../nickreid.css");
 
   // Return your Object options:
   return {
