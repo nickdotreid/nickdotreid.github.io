@@ -10,9 +10,11 @@
     {% endif %}
     <title>{{ title or site.title }}</title>
 
-    <link rel="stylesheet" href="/css/css.css"> 
+    <link rel="stylesheet" href="/nickreid.css"> 
 </head>
 <body>
-    {{ content | safe }}
+    <div class="content">
+        {{ content | safe }}
+    </div>
 </body>
 </html>
