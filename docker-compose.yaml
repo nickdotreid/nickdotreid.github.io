@@ -1,0 +1,8 @@
+services:
+  nickreidcom:
+    build: ./
+    command: npx @11ty/eleventy --serve
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/app
