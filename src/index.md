@@ -3,8 +3,8 @@ share: true
 ---
 # _Hi!_  I'm Nick Reid
 
-I'm a PhD candidate in [Biomedical Informatics and Medical Education](http://bime.uw.edu/)  at the University of Washington and advised by Andrea Hartzler.
+I'm a PhD candidate in [Biomedical Informatics and Medical Education](http://bime.uw.edu/)  at the University of Washington and advised by [Andrea Hartzler.](https://bime.uw.edu/faculty/andrea-hartzler/) My dissertation is about how people living with cysitic fibrosis incorporate care innovations into their lives.
 
 I research how people navigate chronic health conditions and advocate for more accessible health information.
 
-Beyond health informatics, I enjoy bicycles, hammocks, and naps.
+Beyond health informatics, I enjoy bicycles, [[Recipies|cooking,]] and naps.
