@@ -56,11 +56,11 @@ body > .content:first-child::before {
     position: static;
     display: block;
     width: 100%;
-    height: 100px;
+    height: 115px;
     background-color: var(--primary-color);
-    background-image: url('./images/nickreid-logo.png');
+    background-image: url('./nickreid-logo.png');
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-size: auto 100px;
     background-position: center bottom;
 }
 
@@ -69,14 +69,19 @@ body > .content:first-child::before {
         max-width: 600px;
         padding-left: 150px 
     }
-    
+   
+
+    body > .content:first-child {
+      margin-top:100px
+    }
+
     body > .content:first-child::before {
         position: absolute;
         top: -70px;
-        left: -70px;
+        right: 15px;
         width: 150px;
-        height: 150px;
-	z-index: -1;
+        height: 115x;
+	z-index: 10;
 	background-size: 100% auto;
     }
 }
