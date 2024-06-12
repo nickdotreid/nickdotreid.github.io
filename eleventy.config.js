@@ -3,17 +3,20 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./nickreid*");
   eleventyConfig.addWatchTarget("nickreid.css");
 
+
+  
+
   // Can be sync or async
   eleventyConfig.addTransform("transform-name", async function (content) {
     //console.log(this.page.inputPath);
     console.log(this.page.outputPath);
 
-    regex = new RegExp(/\[\[(.*)\]\]/)
+    regex = new RegExp(/href="\.\/(.*)\.md"/)
     match = regex.exec(content);
     while (match) {
-      console.log(match[0]);
+      console.log(match[0], match[1]);
       content = match.input.substring(0, match.index)
-      + match[1].split("|")[0].trim()
+      + 'href="' + match[1].trim() + '/"'
       + match.input.substring(
         match.index + match[0].length,
         match.input.length
