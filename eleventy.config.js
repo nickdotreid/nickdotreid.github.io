@@ -4,17 +4,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addWatchTarget("nickreid.css");
 
 
-  
-
-  // Can be sync or async
-  eleventyConfig.addTransform("transform-name", async function (content) {
-    //console.log(this.page.inputPath);
-    console.log(this.page.outputPath);
-
+  eleventyConfig.addTransform("trim-md-path", async function (content) {
     regex = new RegExp(/href="\.\/(.*)\.md"/)
     match = regex.exec(content);
     while (match) {
-      console.log(match[0], match[1]);
       content = match.input.substring(0, match.index)
       + 'href="' + match[1].trim() + '/"'
       + match.input.substring(
