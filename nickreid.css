@@ -7,23 +7,18 @@
 }
 
 html {
-    display: block;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-
     font-family: Arial, sans-serif;
     font-size: var(--main-text-size);
 }
 
 body {
     background-color: var(--body-bg-color);
-    display: block;
-    height: 100%;
-    width: 100%;
     margin: 0px;
     padding: 0px;
-    overflow: auto;
+}
+
+ul > li {
+    margin-left: 1em;
 }
 
 @media(min-width: 600px) {
