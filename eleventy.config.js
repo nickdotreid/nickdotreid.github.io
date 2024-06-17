@@ -3,6 +3,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./nickreid*");
   eleventyConfig.addWatchTarget("nickreid.css");
 
+  eleventyConfig.addPassthroughCopy("src/**/*.jpg");
 
   const slugify = eleventyConfig.getFilter("slugify");
   eleventyConfig.addFilter("slugifyURL", function(value){
@@ -22,7 +23,6 @@ module.exports = function(eleventyConfig) {
     if (text.split("|")[1].trim()) {
       linkText = text.split("|")[1].trim();
     }
-    console.log(obsidianLinks, link);
     if (obsidianLinks[link]) {
       return '<a href="' + obsidianLinks[link] + '">'+ linkText +'</a>';
     } else {
@@ -35,7 +35,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.on("eleventy.contentMap", function({inputPathToUrl}) { 
     console.log('content map', inputPathToUrl);
     Object.keys(inputPathToUrl).forEach(function(_key) {
-      console.log(_key, inputPathToUrl[_key][0]);
       let bits = _key.split('/');
       console.log("** " + bits.length, bits);
       let link = bits[bits.length-1].replace('.md','');
@@ -43,8 +42,9 @@ module.exports = function(eleventyConfig) {
     });
   });
 
-  eleventyConfig.addTransform("trim-md-path", async function (content) {
-    regex = new RegExp(/\[\[(.*)\]\]/)
+
+  function obsidianLink(content) {
+    const regex = new RegExp(/\[\[(.*)\]\]/)
     match = regex.exec(content);
     const slugifyURL = eleventyConfig.getFilter('slugifyURL');
     while (match) {
@@ -56,6 +56,28 @@ module.exports = function(eleventyConfig) {
       );
       match = regex.exec(content);
     }
+    return content;
+
+  }
+
+  function obsidianEmbed(content) {
+    const regex = new RegExp(/\!\[\[(.*)\]\]/);
+    let match = regex.exec(content);
+    while (match) {
+      let inputs = match[1].split("|");
+      let src = inputs[0].trim();
+      let image = '<img src="' + src + '" alt="" />'
+      content = match.input.substring(0, match.index)
+      + image
+      + match.input.substring(match.index + match[0].length);
+      match = regex.exec(content);
+    }
+    return content
+  }
+
+  eleventyConfig.addTransform("trim-md-path", async function (content) {
+    content = obsidianEmbed(content);
+    content = obsidianLink(content);
     return content;
   });
 
