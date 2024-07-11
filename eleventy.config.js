@@ -66,7 +66,9 @@ module.exports = function(eleventyConfig) {
     while (match) {
       let inputs = match[1].split("|");
       let src = inputs[0].trim();
-      let image = '<img src="' + src + '" alt="" />'
+      let alt = inputs[1].trim();
+      let width = inputs[2].trim();
+      let image = '<img src="' + src + '" style="width:'+width+'px;" alt="' + alt + '" />'
       content = match.input.substring(0, match.index)
       + image
       + match.input.substring(match.index + match[0].length);
